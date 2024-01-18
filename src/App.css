@@ -1,0 +1,155 @@
+/* *{ */
+  /* margin: 0;
+  padding: 0;
+} */
+.App {
+  text-align: center;
+  background-color: #24b1ca;
+  height: 100vh;
+}
+.title{
+  color: white;
+}
+.expense-tracker-app{
+  border-radius: 20px;
+  padding-bottom: 20px;
+  width: 60%;
+  margin: auto;
+  background: #02316e;
+  color: white;
+}
+.tracker{
+  display: flex;
+  justify-content: space-between;
+
+  margin: auto;
+  
+}
+.budget{
+  margin: auto;
+  background: #fc5e5e;
+  height: 100px;
+  width: 200px;
+  border-radius: 20px;
+  
+}
+.expenses{
+  margin: auto;
+  background: #24b1ca;
+  height: 100px;
+  width: 200px;
+  border-radius: 20px;
+}
+.remaning{
+  margin: auto;
+  background: #233f44;
+  height: 100px;
+  width: 200px;
+  border-radius: 20px;
+
+}
+.amnt{
+  color: white;
+  align-items: center;
+  padding: 7px 0;
+  font-weight: 700;
+  font-size: large;
+
+}
+.amnt-btn{
+  padding: 0px 0;
+  cursor: pointer;
+}
+.btn{
+  width: 50px;
+  height: 30px;
+  border-radius: 7px;
+  background: rgb(1, 137, 216);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.add-expense{
+  width: 90%;
+  margin: auto;
+  border-radius: 7px;
+  background: #040f22;
+  
+}
+.inputFields{
+  display: flex;
+  width: 70%;
+  margin: auto;
+  padding-bottom: 20px;
+  justify-content: space-between;
+}
+.add-btn{
+  margin-left: 15px;
+  border-radius: 7px;
+  background: rgb(85, 85, 255);
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.row-flex{
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.edit-budget{
+  background: #fff4f4;
+  width: 90%;
+  display: flex;
+  margin: auto;
+  justify-content:space-between;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+label{
+  color: #040f22;
+  padding-left: 1px;
+}
+.myBudget{
+  padding: 10px;
+}
+
+.data-btn{
+  margin: auto 10px;
+  width: 50px;
+  height: 25px;
+  border-radius: 5px;
+  background-color: rgb(4, 105, 145);
+  color: rgb(27, 20, 20);
+  cursor: pointer;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+  color: black;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 15px;
+}
+
+td, th {
+  /* border: 1px solid #dddddd; */
+  text-align: left;
+  padding: 8px;
+  
+}
+td{
+  color: rgb(255, 253, 253);
+}
+
+tr {
+  background-color: #02316e;
+  color: white;
+}
+.d-flex{
+  display: flex;
+  justify-content: space-between;
+}
