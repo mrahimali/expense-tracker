@@ -65,88 +65,80 @@ const Tracker = () => {
         setAmmount(myData[index].amount);
     }
 
-    const deleteExpense = (data, index) => {
+    const deleteExpense = (index) => {
         const shouldDelete = window.confirm("Are you sure you want to delete this expense?");
         if (shouldDelete) {
-            const updatedData = [...data];
+            const updatedData = [...myData];
             updatedData.splice(index, 1);
 
             setMyData(updatedData);
         }
     }
 
-
     return (
-        <div className="expense-tracker-app">
-            <div className="upper">
-                <h1>React Js Expense Tracker</h1>
-                <div className='tracker'>
-                    <div className='budget'>
-                        <p className='amnt amnt-btn'>Budget: Rs. {budget}</p>
-                        <button className='btn' onClick={() => setDisplay(true)}>Edit</button>
+        <>
+            <div className="expense-tracker-app">
+                <div className="upper">
+                    <h1>React Js Expense Tracker</h1>
+                    <div className='tracker'>
+                        <div className='budget'>
+                            <p className='amnt amnt-btn'>Budget: Rs. {budget}</p>
+                            <button className='btn' onClick={() => setDisplay(true)}>Edit</button>
+                        </div>
+                        <div className='expenses'>
+                            <p className='amnt'>Expended: Rs. {expendAmnt}</p>
+                        </div>
+                        <div className='remaning'>
+                            <p className='amnt'>Remaining: Rs. {budget - expendAmnt}</p>
+                        </div>
                     </div>
-                    <div className='expenses'>
-                        <p className='amnt'>Expended: Rs. {expendAmnt}</p>
+                </div>
+                {display && (
+                    <div className="edit-budget">
+                        <div>
+                            <label>Enter your Budget</label>
+                            <input type="number" className='myBudget' onChange={myBudget} value={newBudget} placeholder='enter your budget..' />
+                        </div>
+                        <div>
+                            <button onClick={addBudget}>Add Budget</button>
+                        </div>
                     </div>
-                    <div className='remaning'>
-                        <p className='amnt'>Remaining: Rs. {budget - expendAmnt}</p>
+                )}
+                <div className="lower">
+                    <div className="add-expense">
+                        <h2 className='title'>{edit ? "Edit Expense" : 'Add Expenses'}</h2>
+                        <div className="inputFields">
+                            <input type="text" className='data' onChange={myExpense} name='expense' value={expense} placeholder='enter expense' />
+                            <input type="number" className='data' onChange={myAmmount} name='amount' value={ammount} placeholder='enter amount' />
+                            <button className='add-btn' onClick={addExpense}>{edit ? "Save" : "Add Expense"}</button>
+                        </div>
+                    </div>
+                    <div className="expense-details">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Expense</th>
+                                    <th>Amount</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {myData.map((item, index) => (
+                                    <tr key={index}>
+                                        <td>{item.expense}</td>
+                                        <td>Rs. {item.amount}</td>
+                                        <td>
+                                            <button className='add-btn' onClick={() => editExpense(index)}>Edit</button>
+                                            <button className='add-btn' onClick={() => deleteExpense(index)}>Delete</button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-            {display && (
-                <div className="edit-budget">
-
-                    <div>
-                        <label>Enter your Budget</label>
-                        <input type="number" className='myBudget' onChange={myBudget} value={newBudget} placeholder='enter your budget..' />
-                    </div>
-                    <div>
-                        <button onClick={addBudget}>Add Budget</button>
-                    </div>
-                </div>
-            )}
-            <div className="lower">
-                <div className="add-expense">
-                    <h2 className='title'>{edit ? "Edit Expense" : 'Add Expenses'}</h2>
-                    <div className="inputFields">
-                        <input type="text" className='data' onChange={myExpense} name='expense' value={expense} placeholder='enter expense' />
-                        <input type="number" className='data' onChange={myAmmount} name='amount' value={ammount} placeholder='enter amount' />
-                        <button className='add-btn' onClick={addExpense}>{edit ? "Save" : "Add Expense"}</button>
-                    </div>
-                </div>
-                <div className="expense-details">
-                    <table>
-                        <tr>
-                            <th>Expense</th>
-                            <th>Amount</th>
-                        </tr>
-
-                        {myData.map((item, index) => (
-
-                            // <div className="inputFields" >
-                            <tr key={index}>
-                                <td>{item.expense}</td>
-                                <td>
-                                    <div className='d-flex'>
-                                        <div>Rs. {item.amount}
-
-                                        </div>
-                                        <div><button className='add-btn' onClick={() => editExpense(index)}>Edit</button>
-                                            <button className='add-btn' onClick={() => deleteExpense(myData, index)}>Delete</button>
-                                        </div>
-                                    </div>
-                                </td>
-
-                            </tr>
-                            // </div>
-                        ))}
-
-
-                    </table>
-
-                </div>
-            </div>
-        </div>
+        </>
     );
 };
 
